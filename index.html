@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header Section -->
+    <header>
+      <div class="header-left">
+        <h1>To-Do List</h1>
+      </div>
+      <div class="header-right">
+          <button id="dark-mode-btn"></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Task Input Section -->
+    <div class="task-input">
+      <input type="text" id="task-input-bar" placeholder="Add a new task...">
+      <button id="add-task-btn">add</button>
+    </div>
+
+    <!-- Color Options  -->
+    <div id="color-options" class="hidden">
+      <div class="color" style="background-color:#ffaaa5;"></div>
+      <div class="color" style="background-color:#ffd3b6"></div>
+      <div class="color" style="background-color:#7aa5d2;"></div>
+      <div class="color" style="background-color:#a8e6cf;"></div>
+      <div class="color" style="background-color:#a696c8"></div>
+    </div>
+
+  </div>
+
+  <div class="task-list">
+    <div class="tasks" id="task-container">
+    </div>
+  </div>
+
+  <script src="To_do_list.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:#eeeeee;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e7e6e1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-bottom: 5px solid #000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 10px;
+  border-radius: 70px;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+
+#dark-mode-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #333; 
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#dark-mode-btn::before {
+  content: "🌙";
+  font-size: 20px;
+  color: #fff; 
+  text-align: center;
+  line-height: 40px;
+}
+
+
+.dark-mode #dark-mode-btn {
+  background-color: #fff; 
+}
+
+.dark-mode #dark-mode-btn::before {
+  content: "☀️"; 
+  color: #333;
+}
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .header-left h1 {
+    font-size: 20px; 
+  }
+  
+  #dark-mode-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  #dark-mode-btn::before {
+    font-size: 18px;
+  }
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode header {
+  background-color: #444; 
+  border-bottom: 2px solid #555;
+}
+
+.dark-mode .header-left h1 {
+  color: #fff;
+}
+
+.dark-mode .task-list {
+  background-color: #444;
+  color: #fff; 
+}
+
+
+.dark-mode .task-card {
+  background-color: #555; 
+  color: #fff; 
+  border: 1px solid #666;
+}
+
+.dark-mode .task-actions button {
+  color: #fff; 
+}
+
+.dark-mode .task-actions button:hover {
+  color: #ffcc00; 
+}
+
+.dark-mode #task-input-bar {
+  background-color: #555; 
+  color: #fff;
+  border: 2px solid #777;
+}
+
+.dark-mode #add-task-btn {
+  background-color: #666; 
+  color: #fff; 
+  border: 2px solid #777;
+}
+
+.dark-mode #color-options .color {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+}
+
+
+
+@media (max-width: 480px) {
+  #dark-mode-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  #dark-mode-btn::before {
+    font-size: 16px;
+  }
+}
+
+.header-right button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.header-right button:hover {
+  transform: scale(1.2);
+}
+
+
+/* Task Input Section */
+.task-input {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  width: 500px;
+}
+
+#task-input-bar {
+  flex: 1;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 90px;
+  outline: none;
+ 
+}
+
+#task-input-bar:focus {
+  border-color: #333;
+}
+
+#add-task-btn {
+  padding: 15px;
+  font-size: 18px;
+  background-color:#e7eaf6;
+  border: 2px solid #ccc;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+  height: 50px;
+}
+
+#add-task-btn:hover {
+  transform: scale(1.1);
+  border-color: #333 ;
+}
+
+#color-options {
+  display: flex;
+  margin: 10px 0;
+  margin-left: 540px;
+  margin-top: -65px
+
+}
+
+.color {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#color-options.hidden {
+  display: none;
+}
+
+.task-list {
+  padding: 20px;
+  background-color: #fff;
+
+}
+
+.tasks {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+  padding: 20px; 
+  justify-content: space-around;
+}
+
+@keyframes genieEffect {
+0% {
+    transform: scale(1) translateY(0) translateX(0); 
+    border-radius: 50%; 
+}
+50% {
+    transform: scale(1.5) translateY(-100px) translateX(200px); 
+}
+100% {
+    transform: scale(1) translateY(0) translateX(0); 
+    border-radius: 20px;
+}
+}
+
+/*  genie animation when color is clicked */
+.color.fly {
+position: fixed; 
+z-index: 999; 
+animation: genieEffect 0.8s ease-out forwards;
+}
+
+/* Task Card Styling after Genie Effect */
+.task-card {
+padding: 15px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 20px;
+width: 180px;
+height: 100px;
+position: relative;
+word-wrap: break-word;
+white-space: normal;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transform: scale(1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.task-card p {
+  margin: 0 0 10px 0; 
+  font-size: 16px;
+  color: #333; 
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0; 
+  padding: 0; 
+  background-color: transparent; 
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; 
+  border-radius: 0 0 10px 10px;
+}
+.task-actions button {
+  background-color: transparent; 
+  border: none;
+  color:black; 
+  font-size: 18px; 
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task-actions button:hover {
+  transform: scale(1.2);
+}
+
+.task-actions button:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+@media (max-width: 600px) {
+  header {
+      flex-direction: column;
+      text-align: center;
+  }
+  .task-input {
+      flex-direction: column;
+      width: 90%;
+      margin: 10px auto;
+  }
+  #add-task-btn {
+      margin-top: 10px;
+      width: 100%;
+  }
+  .tasks {
+      grid-template-columns: 1fr; 
+  }
+
+  
+}
+/* Keyframes for fly-away effect */
+@keyframes flyAway {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50px) translateY(-200px) scale(0.8); 
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(100px) translateY(-500px) scale(0.5); 
+    opacity: 0;
+  }
+}
+
+.task-card.fly-away {
+  animation: flyAway 0.8s ease-in forwards; 
+}
+
+.task-card.fly-away .task-actions button {
+  pointer-events: none;
+}
+
