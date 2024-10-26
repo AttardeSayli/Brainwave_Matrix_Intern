@@ -10,20 +10,30 @@ body {
 }
 
 
-header {
+
+ header {
   display: flex;
   justify-content: space-between;
+  font-family: cursive;
   align-items: center;
-  background-color: #e7e6e1;
+  background-color:white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  border-bottom: 5px solid #000;
+  border-bottom: 3px solid #000;
   position: sticky;
   top: 0;
   z-index: 100;
   height: 10px;
   border-radius: 70px;
-}
+  background-image: url('https://img.freepik.com/premium-vector/vector-cartoon-notepad-edit-document-with-pencil-icon-comic-style-notepad-concept-illustration-pictogram-document-business-splash-effect-concept_157943-5332.jpg');
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100px 50px;
+  
+
+  
+} 
+
 
 .header-left h1 {
   margin: 0;
@@ -173,6 +183,7 @@ header {
   border: 2px solid #ccc;
   border-radius: 90px;
   outline: none;
+  font-family: cursive;
  
 }
 
@@ -183,6 +194,7 @@ header {
 #add-task-btn {
   padding: 15px;
   font-size: 18px;
+  font-family: cursive;
   background-color:#e7eaf6;
   border: 2px solid #ccc;
   border-radius: 40px;
@@ -258,12 +270,13 @@ z-index: 999;
 animation: genieEffect 0.8s ease-out forwards;
 }
 
-/* Task Card Styling after Genie Effect */
+/* Task Card  */
 .task-card {
 padding: 15px;
 background-color: #fff;
 border: 1px solid #ccc;
 border-radius: 20px;
+font-family: cursive;
 width: 180px;
 height: 100px;
 position: relative;
@@ -316,6 +329,16 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 .task-actions button:not(:last-child) {
   margin-right: 10px;
 }
+
+.task-date {
+  position: absolute;
+  font-family:cursive;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  color:rgb(40, 36, 36);
+}
+
 
 
 @media (max-width: 600px) {
