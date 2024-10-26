@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskInputBar = document.getElementById('task-input-bar');
     const taskContainer = document.getElementById('task-container');
 
+    // Show color options when clicking the + button
     addTaskBtn.addEventListener('click', () => {
         colorOptions.classList.toggle('hidden');
     });
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('#color-options .color').forEach((colorDiv) => {
         colorDiv.addEventListener('click', function () {
             const color = this.style.backgroundColor;
-            flyAndAddTask(this, color); 
+            flyAndAddTask(this, color);
             colorOptions.classList.add('hidden');
         });
     });
@@ -69,13 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to add new task
+    // Function to add new task with date
     function addTask(color) {
         const taskText = taskInputBar.value.trim();
         const taskCard = document.createElement('div');
         taskCard.classList.add('task-card');
         taskCard.style.backgroundColor = color;
+
+        // Get the current date
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+
+        // Add date and task text to the task card
         taskCard.innerHTML = `
+            <div class="task-date">${formattedDate}</div>
             <p>${taskText}</p>
             <div class="task-actions">
                 <button class="edit-task">✎</button>
@@ -124,11 +132,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Delete task with fly-away effect
         deleteBtn.addEventListener('click', () => {
-            taskCard.classList.add('fly-away'); 
+            taskCard.classList.add('fly-away');
             setTimeout(() => {
-                taskContainer.removeChild(taskCard); 
-            }, 800); 
+                taskContainer.removeChild(taskCard);
+            }, 800);
         });
     }
 });
-
